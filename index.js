@@ -1,17 +1,21 @@
-import TrsRouter from './trs/trs-router.js';
+import { TrsRouter } from './trs-spa.js';
+import './trs/layout/trds-layout.js';
 
 const Router = new TrsRouter([{
     path: '/',
-    component: () => import('./pages/HomePage.js'),
-    layoutComponent: () => import('./layouts/MainLayout.js')
+    view: () => import('./views/Home.js'),
+    layout: () => import('./layouts/MainLayout.js')
 },{
-    path: '/dashboard',
-    component: () => import('./pages/DashboardPage.js'),
-    layoutComponent: () => import('./layouts/MainLayout.js')
+    path: '/jegkarjavitas',
+    view: () => import('./views/Dashboard.js'),
+    layout: () => import('./layouts/MainLayout.js')
 },{
-    path: '/contact',
-    component: () => import('./pages/ContactPage.js'),
-    layoutComponent: () => import('./layouts/MainLayout.js')
+    path: '/horpadasjavitas',
+    view: () => import('./views/Contact.js'),
+    layout: () => import('./layouts/MainLayout.js')
+},{
+    path: '/kapcsolat',
+    view: () => import('./views/Login.js')
 }]);
 
 Router.run();
